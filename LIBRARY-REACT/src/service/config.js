@@ -1,10 +1,5 @@
 // src/service/config.js
-import axios from "axios";
-
-const API_URL = "http://localhost:2010/springbootlibraryapi";
-
-export const getBooks = () => axios.get(API_URL); // ✅ FIXED
-export const getBookById = (id) => axios.get(`${API_URL}/${id}`);
-export const addBook = (book) => axios.post(API_URL, book);
-export const updateBook = (id, book) => axios.put(`${API_URL}/${id}`, book);
-export const deleteBook = (id) => axios.delete(`${API_URL}/${id}`);
+const config={
+    url: "http://localhost:2010/springbootlibraryapi"
+}
+export default config;
