@@ -13,10 +13,13 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+            .cors()  // ✅ Enable CORS using CorsConfig bean
+            .and()
             .csrf(csrf -> csrf.disable()) // Disable CSRF for development
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/springbootlibraryapi/**").permitAll() // Allow all API requests
+                .requestMatchers("/springbootlibraryapi/**").permitAll()
                 .anyRequest().authenticated());
+
         return http.build();
     }
 }
